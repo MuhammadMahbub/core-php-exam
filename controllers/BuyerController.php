@@ -1,8 +1,8 @@
 <?php 
 session_start();
-require_once 'config/db.php';
-require_once 'models/Buyer.php';
-require_once 'utils/Validation.php';
+require_once '../config/db.php';
+require_once '../models/Buyer.php';
+require_once '../utils/Validation.php';
 
 class BuyerController {
 
@@ -75,6 +75,18 @@ class BuyerController {
         $result = $this->buyer->commonQuery($query);
         return $result;
     }
+    public function searchBuyerById($search) {
+        $query = "SELECT * FROM buyers WHERE id LIKE '%$search%' ";
+        $result = $this->buyer->commonQuery($query);
+        return $result;
+    }
+    public function searchBuyerBetweenDate($from, $to) {
+        $query = "SELECT * FROM `buyers` WHERE `entry_at` BETWEEN '%$from%' AND '%$to%'";
+        $result = $this->buyer->commonQuery($query);
+        return $result;
+    }
+
+    
 
     public function deleteBuyer($id) {
         $query = "DELETE FROM buyers WHERE id = $id";
