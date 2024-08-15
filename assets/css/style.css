@@ -1,0 +1,15 @@
+a.report-section__menu--item {
+    color: #000;
+    font-size: 20px;
+    margin-right: 13px;
+    text-decoration: none;
+    font-family: initial;
+    font-weight: 500;
+    padding-bottom: 8px;
+}
+.active-menu {
+    border-bottom: 1px solid #000;
+}
+.report-section__filter-bar {
+    margin-bottom: 20px;
+}
