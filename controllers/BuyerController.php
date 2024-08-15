@@ -50,19 +50,6 @@ class BuyerController {
             } 
         }
 
-      
-        
-        // $query = "INSERT INTO `buyers`(`buyer`, `buyer_email`, `amount`, `receipt_id`, `items`, `buyer_ip`, `note`, `city`, `phone`, `entry_by`, `entry_at`) VALUES ('$buyer', '$buyer_email', '$amount', '$receipt_id', '$items', '$buyer_ip', '$note', '$city', '$phone', '$entry_by', '$entry_at')";
-        // $result = $this->buyer->commonQuery($query);
-        // if($result) {
-        //     $_SESSION['success'] = 'Buyer Added Success';
-        //     header('Location: index.php'); 
-        // }
-        // else {
-        //     $_SESSION['error'] = 'Buyer Added Fail';
-        // }
-         
-
     }
     public function getAllBuyer() {
         $query = "SELECT * from buyers ORDER BY ID DESC";
@@ -81,12 +68,10 @@ class BuyerController {
         return $result;
     }
     public function searchBuyerBetweenDate($from, $to) {
-        $query = "SELECT * FROM `buyers` WHERE `entry_at` BETWEEN '%$from%' AND '%$to%'";
+        $query = "SELECT * FROM `buyers` WHERE `entry_at` BETWEEN '$from' AND '$to'";
         $result = $this->buyer->commonQuery($query);
         return $result;
     }
-
-    
 
     public function deleteBuyer($id) {
         $query = "DELETE FROM buyers WHERE id = $id";
@@ -101,7 +86,6 @@ class BuyerController {
         return $result;
     }
     
-
     public function updateBuyer($data, $id){
         
         // time settings
@@ -141,6 +125,5 @@ class BuyerController {
             }
         }
     }
-
 
 }

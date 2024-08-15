@@ -4,6 +4,18 @@
 
 class Validation {
 
+
+    // count bangla workd
+    public function countBengaliWords($string) {
+        $pattern = '/[\x{0980}-\x{09FF}]+/u';
+        if (preg_match_all($pattern, $string, $matches)) {
+            return count($matches[0]);
+        } else {
+            return 0;
+        }
+    }
+
+    // validation settings
     public function dataValidation($data) {
           // validation
           $errors = [];
@@ -36,20 +48,16 @@ class Validation {
               }
               $values['buyer_email'] = $data['buyer_email']; 
           }
-  
-          
           if (empty($data['amount']) || !is_numeric($data['amount'])) {
               $errors['amount'] = "A valid amount is required.";
           }else {
               $values['amount'] = $data['amount']; 
           } 
-          
           if (empty($data['receipt_id'])) {
               $errors['receipt_id'] = "Receipt ID is required.";
           }else {
               $values['receipt_id'] = $data['receipt_id']; 
           }
-          
           if (empty($data['items'])) {
               $errors['items'] = "Items field is required.";
           }else {
@@ -61,9 +69,10 @@ class Validation {
   
           }else {
               $wordCount = str_word_count($data['note']);
-              if($wordCount > 30) {
+              if($wordCount > 30 || $this->countBengaliWords($data['note']) > 30) {
                   $errors['note'] = "Note must not be 30 words long";
-              }
+              } 
+ 
               $values['note'] = $data['note']; 
           }
           
@@ -82,14 +91,12 @@ class Validation {
               }
               $values['phone'] = $data['phone']; 
           }
-          
           if (empty($data['entry_by'])) {
               $errors['entry_by'] = "Entry by is required.";
           } else {
               $values['entry_by'] = $data['entry_by']; 
           }
           
-  
           if (!empty($errors)) {
               return ['errors' => $errors, 'values' => $values];
           } 

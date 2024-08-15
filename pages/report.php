@@ -12,27 +12,25 @@
         $buyer->singleBuyer($id);
     }
 
-    // SEARCH SETTINGS
-    $search = isset($_GET['search']) ? $_GET['search'] : '';
-    if (!empty($search)) {
-        $allBuyer = $buyer->searchBuyerById($search);
-    } else {
-        $allBuyer = $buyer->getAllBuyer();
+    //SEARCH SETTINGS
+    if(isset($_GET['submitData'])) {
+        if (isset($_GET['submitData'])) {
+            $from = $_GET['from']; 
+            $to = $_GET['to'];
+            $allBuyer = $buyer->searchBuyerBetweenDate($from, $to);
+    
+        } else {
+            $allBuyer = $buyer->getAllBuyer();
+        }
     }
-
-   
-    if (isset($_POST['submit'])) {
-        $from = $_POST['from'];
-        $fromArr = explode("/", $from);
-        $from = $fromArr[2] . '-' . $fromArr[0] . '-' . $fromArr[1];
-        
-        $to = $_POST['to'];
-        $toArr = explode("/", $to);
-        $to = $toArr[2] . '-' . $toArr[0] . '-' . $toArr[1];
-
-        $allBuyer = $buyer->searchBuyerBetweenDate($from, $to);
-    } else {
-        $allBuyer = $buyer->getAllBuyer();
+    else {
+        $search = isset($_GET['search']) ? $_GET['search'] : '';
+        if (!empty($search)) {
+            $allBuyer = $buyer->searchBuyerById($search);
+        } else {
+            $allBuyer = $buyer->getAllBuyer();
+        }
+    
     }
 
 ?>
@@ -71,7 +69,7 @@
                                         <input type="date" name="to" class="form-control">
                                     </div>
                                     <div class="search_report"> 
-                                        <button type="submit" class="btn btn-success">Check Report</button>
+                                        <button type="submit" name="submitData" class="btn btn-success">Check Report</button>
                                     </div>
                                </div>
                             </form>
