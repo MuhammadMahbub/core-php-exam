@@ -14,6 +14,7 @@ class BuyerController {
         $this->buyer = new Buyer();
     }
 
+    // CREATE NEW BUYER
     public function create ($data){
         
         // Set the default timezone to Dhaka
@@ -53,28 +54,36 @@ class BuyerController {
         }
 
     }
+
+    // GET ALL BUYERS
     public function getAllBuyer() {
         $query = "SELECT * from buyers ORDER BY ID DESC";
         $datas = $this->buyer->getData($query);
         return $datas;
     }
 
+    // SEARCH BY BUYER NAME AND BUYER EMAIL
     public function searchBuyer($search) {
         $query = "SELECT * FROM buyers WHERE buyer LIKE '%$search%' OR buyer_email LIKE '%$search%' ";
         $result = $this->buyer->commonQuery($query);
         return $result;
     }
+
+    // SEARCH BY BUYER ID
     public function searchBuyerById($search) {
         $query = "SELECT * FROM buyers WHERE id LIKE '%$search%' ";
         $result = $this->buyer->commonQuery($query);
         return $result;
     }
+
+    // SEARCH BETWEEN START DATE AND ENDING DATE
     public function searchBuyerBetweenDate($from, $to) {
         $query = "SELECT * FROM `buyers` WHERE `entry_at` BETWEEN '$from' AND '$to'";
         $result = $this->buyer->commonQuery($query);
         return $result;
     }
 
+    // DELETE BUYER DATA
     public function deleteBuyer($id) {
         $query = "DELETE FROM buyers WHERE id = $id";
         $this->buyer->commonQuery($query);
@@ -82,12 +91,14 @@ class BuyerController {
         header('Location: index.php');
     }
 
+    // SHOW SINGLE BUYER
     public function singleBuyer($id) {
         $query = "SELECT * FROM `buyers` WHERE id = $id";
         $result = $this->buyer->commonQuery($query); 
         return $result;
     }
     
+    // UPDATE BUYER DATA
     public function updateBuyer($data, $id){
         
         // time settings

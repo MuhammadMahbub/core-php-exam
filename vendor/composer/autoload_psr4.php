@@ -13,6 +13,7 @@ return array(
     'Symfony\\Component\\Translation\\' => array($vendorDir . '/symfony/translation'),
     'Symfony\\Component\\Clock\\' => array($vendorDir . '/symfony/clock'),
     'Psr\\Clock\\' => array($vendorDir . '/psr/clock/src'),
+    'Pages\\' => array($baseDir . '/pages'),
     'Models\\' => array($baseDir . '/models'),
     'Controller\\' => array($baseDir . '/controllers'),
     'Config\\' => array($baseDir . '/config'),

@@ -29,6 +29,7 @@ class ComposerStaticInit889f831e09da48cb8affe8b66f071284
         'P' => 
         array (
             'Psr\\Clock\\' => 10,
+            'Pages\\' => 6,
         ),
         'M' => 
         array (
@@ -71,6 +72,10 @@ class ComposerStaticInit889f831e09da48cb8affe8b66f071284
         'Psr\\Clock\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/clock/src',
+        ),
+        'Pages\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/pages',
         ),
         'Models\\' => 
         array (
