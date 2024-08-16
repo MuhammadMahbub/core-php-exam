@@ -1,11 +1,9 @@
 <?php 
 
-    require_once '../controllers/BuyerController.php';
     require '../vendor/autoload.php';
     use Carbon\Carbon;
 
-
-    $buyer = new BuyerController();
+    $buyer = new Controller\BuyerController();
 
     if(isset($_GET['viewBuyer'])){
         $id = base64_decode($_GET['viewBuyer']);

@@ -1,5 +1,14 @@
 {
     "require": {
         "nesbot/carbon": "^3.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Controller\\": "controllers/",
+            "Models\\": "models/",
+            "Utils\\": "utils/",
+            "Config\\": "config/"
+        } 
     }
 }
+ 

@@ -1,8 +1,10 @@
 <?php 
+namespace Controller;
 session_start();
-require_once '../config/db.php';
-require_once '../models/Buyer.php';
-require_once '../utils/Validation.php';
+require_once '../vendor/autoload.php';
+use Models\Buyer;
+use Utils\Validation;
+use DateTime;
 
 class BuyerController {
 

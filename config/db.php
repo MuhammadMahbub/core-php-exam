@@ -1,5 +1,10 @@
 <?php 
-class Database {
+
+namespace Config;
+
+use mysqli;
+
+class db {
     private $host = "localhost";
     private $db_name = "xspeed_exam";
     private $username = "root";

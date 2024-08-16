@@ -1,8 +1,8 @@
 <?php 
 
-    require_once '../controllers/BuyerController.php';
+    require_once('../vendor/autoload.php');
 
-    $buyer = new BuyerController();
+    $buyer = new Controller\BuyerController();
 
     if(isset($_GET['id'])) {
         $id = $_GET['id'];

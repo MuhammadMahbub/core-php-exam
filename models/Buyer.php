@@ -1,9 +1,10 @@
 <?php 
 
-    require_once '../config/db.php';
+namespace Models;
+require_once '../config/db.php';
+use  Config\db;
 
-
-class Buyer extends Database {
+class Buyer extends db {
 
     public function commonQuery($query) {
         $result = mysqli_query($this->conn, $query);

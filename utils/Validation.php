@@ -1,6 +1,6 @@
 <?php 
 
- 
+namespace Utils;
 
 class Validation {
 
@@ -32,10 +32,14 @@ class Validation {
           ];
   
           if (empty($data['buyer'])) {
-              $errors['buyer'] = "Buyer name is required.";
+            $errors['buyer'] = "Buyer name is required.";
           } 
           else {
-              $values['buyer'] = $data['buyer']; 
+                $buyerWordCount = str_word_count($data['buyer']);
+                if($buyerWordCount > 20) {
+                    $errors['buyer'] = "Buyer must not be 20 words long";
+                } 
+                $values['buyer'] = $data['buyer']; 
           }
   
           if (empty($data["buyer_email"])) {

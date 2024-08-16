@@ -1,6 +1,8 @@
 <?php 
 
-    require_once '../controllers/BuyerController.php';
+    require_once('../vendor/autoload.php');
+
+    use Controller\BuyerController;
 
     $buyer = new BuyerController();
     $create = ['errors' => [], 'values' => []];
@@ -18,7 +20,6 @@
 ?>
 
 
- 
 
 <!doctype html>
 <html lang="en">

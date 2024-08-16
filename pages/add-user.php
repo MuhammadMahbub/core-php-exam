@@ -1,6 +1,9 @@
 <?php 
 
-    require_once '../controllers/BuyerController.php';
+   
+    use Controller\BuyerController;
+
+    require_once('../vendor/autoload.php');
 
     $buyer = new BuyerController();
     $create = ['errors' => [], 'values' => []];
