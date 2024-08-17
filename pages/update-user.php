@@ -8,7 +8,7 @@
     $create = ['errors' => [], 'values' => []];
 
     if(isset($_GET['id'])) {
-        $id = $_GET['id'];
+        $id = base64_decode($_GET['id']);
         $result = $buyer->singleBuyer($id);
         $row = $result->fetch_assoc();
     }

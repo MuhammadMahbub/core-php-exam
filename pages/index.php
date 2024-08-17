@@ -88,8 +88,8 @@
                                             <td><?= $row['phone'] ?></td>
                                             <td><?= $date->diffForHumans(); ?></td>
                                             <td>
-                                                <a class="btn btn-warning me-3" href="single-user.php?id=<?= $row['id'] ?>">View</a>
-                                                <a class="btn btn-success me-3" href="update-user.php?id=<?= $row['id'] ?>">Edit</a>
+                                                <a class="btn btn-warning me-3" href="single-user.php?id=<?=base64_encode($row['id']) ?>">View</a>
+                                                <a class="btn btn-success me-3" href="update-user.php?id=<?=base64_encode($row['id']) ?>">Edit</a>
                                                 <a class="btn btn-danger" href="?deleteBuyer=<?=base64_encode($row['id'])?>" onclick="return confirm('Are you sure to delete ?')">Delete</a>
                                             </td>
                                         </tr>

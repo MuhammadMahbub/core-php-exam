@@ -134,6 +134,7 @@ class BuyerController {
                 $_SESSION['success'] = 'Buyer Update Success';
             }
             else {
+                // header('Location: index.php');
                 $_SESSION['error'] = 'Buyer update failed';
             }
         }
