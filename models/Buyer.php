@@ -6,6 +6,7 @@ use  Config\db;
 
 class Buyer extends db {
 
+    // FOR DELETE, UPDATE, SINGLE DATA, AND ALSO CREATE 
     public function commonQuery($query) {
         $result = mysqli_query($this->conn, $query);
         if($result) {
